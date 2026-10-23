@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readers' Haven – Book Registration & Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #1a365d;
+            text-align: center;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 10px;
+        }
+        fieldset {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            color: #1a365d;
+            padding: 0 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #334155;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="password"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button[type="submit"] {
+            background-color: #2563eb;
+            color: white;
+        }
+        button[type="submit"]:hover {
+            background-color: #1d4ed8;
+        }
+        button[type="reset"] {
+            background-color: #64748b;
+            color: white;
+        }
+        button[type="reset"]:hover {
+            background-color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Readers' Haven – Book Registration & Order Form</h2>
+    
+    <!-- Task 1: Form tag with action and target -->
+    <form action="/submit-order" method="POST" target="_blank">
+
+        <!-- Task 2 & 3: Personal Information & Placeholders -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <div class="form-group">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </fieldset>
+
+        <!-- Task 4, 5, 6: Preferences & Order Details -->
+        <fieldset>
+            <legend>Book Preferences & Order Details</legend>
+
+            <div class="form-group">
+                <label for="category">Favorite Book Category:</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>--Select a Category--</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Childrens">Children's Books</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bookTitle">Book Title:</label>
+                <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter book title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deliveryDate">Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deliveryTime">Preferred Delivery Time:</label>
+                <input type="time" id="deliveryTime" name="deliveryTime" required>
+            </div>
+        </fieldset>
+
+        <!-- Task 7 & 8: Payment & Additional Services -->
+        <fieldset>
+            <legend>Payment & Additional Services</legend>
+
+            <div class="form-group">
+                <label>Preferred Payment Method:</label>
+                <div class="radio-group">
+                    <input type="radio" id="cod" name="paymentMethod" value="Cash on Delivery" checked>
+                    <label for="cod">Cash on Delivery</label>
+                    
+                    <input type="radio" id="online" name="paymentMethod" value="Online Payment">
+                    <label for="online">Online Payment</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Additional Services:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="giftWrap" name="services" value="Gift Wrapping">
+                    <label for="giftWrap">Gift Wrapping</label>
+
+                    <input type="checkbox" id="bookmark" name="services" value="Bookmark">
+                    <label for="bookmark">Bookmark</label>
+
+                    <input type="checkbox" id="express" name="services" value="Express Delivery">
+                    <label for="express">Express Delivery</label>
+
+                    <input type="checkbox" id="greetingCard" name="services" value="Greeting Card">
+                    <label for="greetingCard">Greeting Card</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Task 9, 10, 11: Hidden Field, File Upload, Textarea -->
+        <fieldset>
+            <legend>Additional Information & Instructions</legend>
+
+            <!-- Task 9: Hidden Input Field -->
+            <input type="hidden" name="formSource" value="Readers Haven Book Order">
+
+            <div class="form-group">
+                <label for="referenceFile">Upload Reference Image/Document:</label>
+                <input type="file" id="referenceFile" name="referenceFile" accept="image/*,.pdf,.doc,.docx">
+            </div>
+
+            <div class="form-group">
+                <label for="deliveryAddress">Delivery Address and Special Instructions:</label>
+                <textarea id="deliveryAddress" name="deliveryAddress" placeholder="Enter your full street address and any special delivery instructions..."></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Task 12: Submit and Reset controls using <button> element -->
+        <div class="button-group">
+            <button type="submit">Submit Order</button>
+            <button type="reset">Reset Form</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
